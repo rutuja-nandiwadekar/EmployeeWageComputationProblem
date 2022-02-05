@@ -8,26 +8,30 @@ public class EmployeeWageComputation {
 		final int FULL_TIME = 2;
 		final int PART_TIME = 1;
 		final int WAGE_PER_HR = 20;
-		int FullDayHours = 0;
+		final int WORKING_DAYS = 20;
+		int totalWage = 0;
 		
-	    int empCheck = (int) (Math.random() * 100) % 3;
-	    
-	    switch (empCheck)
+		for (int day = 1; day <= WORKING_DAYS; day++)
         {
-            case FULL_TIME:
-                System.out.println("Employee is Present Full time");
+			int FullDayHours = 0;
+			int empCheck = (int) (Math.random() * 100) % 3;
+	        switch (empCheck)
+            {
+	        case FULL_TIME:
                 FullDayHours = 16;
                 break;
             case PART_TIME:
-                System.out.println("Employee is Present Part time");
                 FullDayHours = 8;
                 break;
             default:
-                System.out.println("Employee is Absent");
-        }
-	    
-	    int wage = FullDayHours * WAGE_PER_HR;
-	    System.out.println("Employee Daily Wage is " + wage);
-	}
+            	
+            }
+	        
+	        int wage = FullDayHours * WAGE_PER_HR;
+	        System.out.println("Day " + day + " wage is:" + wage);
+	        totalWage += wage;
+	    }
+		System.out.println("Total wage for a month is " + totalWage);
+    }
 }
 
