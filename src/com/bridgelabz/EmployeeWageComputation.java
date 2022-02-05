@@ -9,6 +9,7 @@ public class EmployeeWageComputation {
 		final int PART_TIME = 1;
 		final int WAGE_PER_HR = 20;
 		int FullDayHours = 0;
+		
 	    int empCheck = (int) (Math.random() * 100) % 3;
 	    if (empCheck == FULL_TIME)
 	    {
@@ -22,6 +23,7 @@ public class EmployeeWageComputation {
         {
             System.out.println("Employee is Absent");
         }
+	    
 	    int wage = FullDayHours * WAGE_PER_HR;
 	    System.out.println("Employee Daily Wage is " + wage);
 	}
