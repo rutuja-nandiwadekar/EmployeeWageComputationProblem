@@ -25,6 +25,7 @@ public class EmployeeWageComputation {
             default:
                 System.out.println("Employee is Absent");
         }
+	    
 	    int wage = FullDayHours * WAGE_PER_HR;
 	    System.out.println("Employee Daily Wage is " + wage);
 	}
