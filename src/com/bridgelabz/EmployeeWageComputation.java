@@ -1,45 +1,37 @@
 package com.bridgelabz;
 
 public class EmployeeWageComputation {
+	public static final int FULL_TIME = 2;
+	public static final int PART_TIME = 1;
+	public static final int WAGE_PER_HR = 20;
+	public static final int WORKING_DAYS = 20;
+	public static final int MAX_WORKING_HRS = 100;
 
 	public static void main(String[] args) {
-		System.out.println("Welcome to Employee Wage Computation Problem");
-		
-		final int FULL_TIME = 2;
-		final int PART_TIME = 1;
-		final int WAGE_PER_HR = 20;
-		final int WORKING_DAYS = 20;
-		int dailyWage = 0;
-		int totalWage = 0;
-		
-		for (int day = 1; day <= WORKING_DAYS; day++)
-		{
-			System.out.println("FOR DAY " + day);
-			
-			int empCheck = (int) (Math.random() * 100) % 3;
-			
-			int FullDayHours =0;
-			
-			switch (empCheck)
-	        {
-	        case FULL_TIME:
-	        	FullDayHours = 16;
-	        	dailyWage = FullDayHours * WAGE_PER_HR;
-	        	System.out.println("Employee is present for full time \n And Salary is " + dailyWage);
-                break;
-            case PART_TIME:
-            	FullDayHours = 8;
-            	dailyWage = FullDayHours * WAGE_PER_HR;
-            	System.out.println("Employee is present for part time \n And Salary is " + dailyWage);
-                break;
-            default:
-            	System.out.println("Employee is absent \n And Salary is " + dailyWage);
-            	break;
-            }
-			
-			totalWage += dailyWage;
-	    }
-		System.out.println("Total wage for a month is " + totalWage);
-    }
-}
+		int empHrs = 0;
+		int totalEmpHrs = 0;
+		int totalWorkingDays = 0;
 
+		while (totalEmpHrs <= MAX_WORKING_HRS && totalWorkingDays < WORKING_DAYS) {
+			totalWorkingDays++;
+
+			int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+
+			switch (empCheck) {
+			case PART_TIME:
+				empHrs = 4;
+				break;
+			case FULL_TIME:
+				empHrs = 8;
+				break;
+			default:
+				empHrs = 0;
+			}
+
+			totalEmpHrs += empHrs;
+			System.out.println("For Day" + totalWorkingDays + " : Employee Maximum Working Hours are " + empHrs);
+		}
+		int totalEmpWage = totalEmpHrs * WAGE_PER_HR;
+		System.out.println("Total Employee Wage for month is " + totalEmpWage);
+	}
+}
